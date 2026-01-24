@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Care - Healthify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <h2>Nearby Hospitals</h2>
+
+        <div class="card" style="max-width: 600px; margin: 3rem auto; text-align: center; padding: 3rem;">
+            <div
+                style="background: var(--soft-blue); width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem auto;">
+                <i class="fas fa-hospital-alt" style="font-size: 3rem; color: var(--primary-blue);"></i>
+            </div>
+
+            <h3>Locate Medical Help</h3>
+            <p class="text-muted" style="margin-bottom: 2rem;">
+                We use your profile location to find the nearest hospitals, clinics, and emergency centers.
+            </p>
+
+            <div
+                style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #eee;">
+                <strong>Current Location:</strong> <span id="user-location-city">Detection Pending...</span>
+            </div>
+
+            <button id="find-hospital-btn" class="btn" style="font-size: 1.2rem; padding: 15px 40px;">
+                Find Hospitals Near Me <i class="fas fa-external-link-alt" style="margin-left: 10px;"></i>
+            </button>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/hospital.js"></script>
+</body>
+
+</html>

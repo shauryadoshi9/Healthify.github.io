@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercise - Healthify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .breathing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .breath-circle {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--soft-blue), var(--primary-blue));
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            transform: scale(0.5);
+            transition: transform 4s ease-in-out;
+            opacity: 0.8;
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.3);
+        }
+
+        .breath-circle.grow {
+            transform: scale(1.0);
+        }
+
+        .breath-circle.shrink {
+            transform: scale(0.5);
+        }
+
+        .instruction-text {
+            position: relative;
+            z-index: 10;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <h2>Breathing & Relaxation</h2>
+
+        <div class="card breathing-container">
+
+            <div class="circle-container">
+                <div id="breath-circle" class="breath-circle"></div>
+                <div id="breath-text" class="instruction-text">Relax</div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <div class="form-group" style="max-width: 200px; margin: 0 auto 1rem auto;">
+                    <label>Duration</label>
+                    <select id="breath-duration">
+                        <option value="1">1 Minute</option>
+                        <option value="2">2 Minutes</option>
+                        <option value="5">5 Minutes</option>
+                    </select>
+                </div>
+                <button id="start-btn" class="btn" style="min-width: 150px;">Start Session</button>
+                <p id="timer-display" style="margin-top: 1rem; color: var(--text-muted);">Ready to begin?</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/breathing.js"></script>
+</body>
+
+</html>

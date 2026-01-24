@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthify - Digital Health Platform</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007bff">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="brand" onclick="navigateTo('home')">
+            <i class="fas fa-heartbeat"></i> Healthify
+        </a>
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="navigateTo('home')" class="nav-item active" data-target="home">Home</a></li>
+            <li><a href="#" onclick="navigateTo('profile')" class="nav-item" data-target="profile">Profile</a></li>
+            <li><a href="#" onclick="navigateTo('bmi')" class="nav-item" data-target="bmi">BMI & Water</a></li>
+            <li><a href="#" onclick="navigateTo('diet')" class="nav-item" data-target="diet">Diet Plan</a></li>
+            <li><a href="#" onclick="navigateTo('sleep')" class="nav-item" data-target="sleep">Sleep</a></li>
+            <li><a href="#" onclick="navigateTo('breathing')" class="nav-item" data-target="breathing">Breathing</a>
+            </li>
+            <li><a href="#" onclick="navigateTo('hospitals')" class="nav-item" data-target="hospitals">Hospitals</a>
+            </li>
+            <li><a href="#" onclick="navigateTo('quiz')" class="nav-item" data-target="quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="page-section active">
+            <div style="text-align: center; padding: 3rem 0;">
+                <h1>Welcome to <span style="color: var(--primary-blue);">Healthify</span></h1>
+                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+                    Your all-in-one digital health assistant. Track your vitals, plan your diet, manage sleep, and find
+                    care near you.
+                </p>
+            </div>
+            <div class="grid-menu">
+                <div onclick="navigateTo('profile')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-user-circle"></i>
+                    <h3>My Profile</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Manage personal data</p>
+                </div>
+                <div onclick="navigateTo('bmi')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-weight-scale"></i>
+                    <h3>BMI & Water</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Check vitals & hydration</p>
+                </div>
+                <div onclick="navigateTo('diet')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-carrot"></i>
+                    <h3>Diet Planner</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Healthy meal plans</p>
+                </div>
+                <div onclick="navigateTo('sleep')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-bed"></i>
+                    <h3>Sleep Tracker</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Monitor rest quality</p>
+                </div>
+                <div onclick="navigateTo('breathing')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-lungs"></i>
+                    <h3>Breathing</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Relax & focus</p>
+                </div>
+                <div onclick="navigateTo('hospitals')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-hospital-user"></i>
+                    <h3>Find Care</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Nearby hospitals</p>
+                </div>
+                <div onclick="navigateTo('quiz')" class="menu-card" style="cursor:pointer">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Health Quiz</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted)">Test your knowledge</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE SECTION -->
+        <section id="profile" class="page-section">
+            <h2>Your Health Profile</h2>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <div class="card" style="flex: 1; min-width: 300px;">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 1rem;">
+                            <div style="flex:1">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" required placeholder="25">
+                            </div>
+                            <div style="flex:1">
+                                <label for="gender">Gender</label>
+                                <select id="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location (City)</label>
+                            <input type="text" id="location" required placeholder="New York">
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 1rem;">
+                            <div style="flex:1">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" required placeholder="175">
+                            </div>
+                            <div style="flex:1">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" required placeholder="70">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Save Profile</button>
+                    </form>
+                </div>
+                <div class="card"
+                    style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--soft-blue);">
+                    <i class="fas fa-id-card"
+                        style="font-size: 4rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                    <h3 id="display-name">Guest User</h3>
+                    <p id="display-location"><i class="fas fa-map-marker-alt"></i> Location not set</p>
+                    <div style="margin-top: 2rem; width: 100%;">
+                        <div
+                            style="display: flex; justify-content: space-around; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1rem;">
+                            <div style="text-align: center;">
+                                <strong style="display: block; font-size: 1.2rem;" id="display-height">--</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">Height (cm)</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <strong style="display: block; font-size: 1.2rem;" id="display-weight">--</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">Weight (kg)</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <strong style="display: block; font-size: 1.2rem;" id="display-bmi">--</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">Est. BMI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BMI SECTION -->
+        <section id="bmi" class="page-section">
+            <h2>Vitals & Hydration</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div class="card" style="flex: 1; min-width: 300px;">
+                    <h3><i class="fas fa-weight-scale" style="color:var(--primary-blue)"></i> BMI Calculator</h3>
+                    <p class="text-muted">Calculated using your profile data.</p>
+                    <div
+                        style="text-align: center; margin: 2rem 0; padding: 2rem; background: var(--soft-blue); border-radius: 50%; width: 200px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-left: auto; margin-right: auto;">
+                        <div style="font-size: 3rem; font-weight: bold; color: var(--primary-blue);" id="bmi-value">--
+                        </div>
+                        <div id="bmi-category">Unknown</div>
+                    </div>
+                    <div class="result-box"
+                        style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+                        <strong>Suggestion:</strong>
+                        <p id="bmi-suggestion">Please update your profile to see results.</p>
+                    </div>
+                </div>
+                <div class="card" style="flex: 1; min-width: 300px;">
+                    <h3><i class="fas fa-glass-water" style="color:var(--primary-blue)"></i> Water Intake</h3>
+                    <div style="margin: 2rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Target: <strong id="water-target">--</strong> ml</span>
+                            <span>Current: <strong id="water-current">0</strong> ml</span>
+                        </div>
+                        <div style="background: #e9ecef; border-radius: 10px; height: 20px; overflow: hidden;">
+                            <div id="water-bar"
+                                style="background: var(--primary-blue); height: 100%; width: 0%; transition: width 0.5s;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Add Water (ml)</label>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-outline" onclick="addWater(250)">+250ml</button>
+                            <button class="btn btn-outline" onclick="addWater(500)">+500ml</button>
+                            <button class="btn btn-outline" onclick="resetWater()">Reset</button>
+                        </div>
+                    </div>
+                    <div id="hydration-feedback" class="tip-banner"
+                        style="background: var(--soft-blue); border-color: var(--primary-blue); display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIET SECTION -->
+        <section id="diet" class="page-section">
+            <h2>Diet Planner</h2>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <label>Your Goal</label>
+                        <select id="diet-goal">
+                            <option value="maintain">Maintain Health</option>
+                            <option value="gain">Weight Gain</option>
+                            <option value="loss">Weight Loss</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <label>Duration</label>
+                        <select id="diet-duration">
+                            <option value="weekly">Weekly Plan</option>
+                            <option value="monthly">Monthly Overview</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="generateDiet()">Generate Plan</button>
+                </div>
+                <div id="diet-result" style="margin-top: 2rem; display: none;">
+                    <h3
+                        style="border-bottom: 2px solid var(--primary-blue); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                        Recommended Plan</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: var(--soft-blue); text-align: left;">
+                                    <th style="padding: 1rem; border-radius: 8px 0 0 8px;">Meal</th>
+                                    <th style="padding: 1rem;">Suggestion</th>
+                                    <th style="padding: 1rem; border-radius: 0 8px 8px 0;">Calories</th>
+                                </tr>
+                            </thead>
+                            <tbody id="diet-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLEEP SECTION -->
+        <section id="sleep" class="page-section">
+            <h2>Sleep Tracker</h2>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <div class="card" style="flex: 1; min-width: 300px;">
+                    <form id="sleep-form">
+                        <div class="form-group">
+                            <label>Hours Slept</label>
+                            <input type="number" id="sleep-hours" min="0" max="24" step="0.5" required
+                                placeholder="e.g. 7.5">
+                        </div>
+                        <div class="form-group">
+                            <label>Bedtime</label>
+                            <input type="time" id="bedtime">
+                        </div>
+                        <div class="form-group">
+                            <label>Wake-up Time</label>
+                            <input type="time" id="wakeup-time">
+                        </div>
+                        <div class="form-group">
+                            <label>Did you dream?</label>
+                            <select id="dream">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Was sleep peaceful?</label>
+                            <select id="peaceful">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Calculate Quality</button>
+                    </form>
+                </div>
+                <div class="card"
+                    style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #e0f2f1;">
+                    <div id="sleep-score-container" style="text-align: center; display: none;">
+                        <h3>Sleep Score</h3>
+                        <div style="font-size: 4rem; font-weight: bold; color: #00695c; margin: 1rem 0;"
+                            id="sleep-score">--</div>
+                        <p id="sleep-quality" style="font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem;">--</p>
+                        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #b2dfdb;">
+                            <i class="fas fa-moon" style="color: #00695c;"></i> <span id="sleep-advice">--</span>
+                        </div>
+                    </div>
+                    <div id="sleep-placeholder" style="text-align: center; color: var(--text-muted);">
+                        <i class="fas fa-bed" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                        <p>Enter your sleep details to analyze quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BREATHING SECTION -->
+        <section id="breathing" class="page-section">
+            <h2>Breathing & Relaxation</h2>
+            <div class="card breathing-container"
+                style="display:flex; flex-direction:column; align-items:center; min-height:400px; justify-content:center;">
+                <div class="circle-container"
+                    style="position:relative; width:250px; height:250px; display:flex; align-items:center; justify-content:center;">
+                    <div id="breath-circle" class="breath-circle"
+                        style="width:100%; height:100%; background:linear-gradient(135deg, var(--soft-blue), var(--primary-blue)); border-radius:50%; position:absolute; transform:scale(0.5); transition:transform 4s ease-in-out; opacity:0.8; box-shadow:0 0 30px rgba(0,123,255,0.3);">
+                    </div>
+                    <div id="breath-text" class="instruction-text"
+                        style="position:relative; z-index:10; font-size:1.5rem; color:white; font-weight:600; text-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                        Relax</div>
+                </div>
+                <div style="margin-top: 3rem; text-align: center;">
+                    <div class="form-group" style="max-width: 200px; margin: 0 auto 1rem auto;">
+                        <label>Duration</label>
+                        <select id="breath-duration">
+                            <option value="1">1 Minute</option>
+                            <option value="2">2 Minutes</option>
+                            <option value="5">5 Minutes</option>
+                        </select>
+                    </div>
+                    <button id="start-btn" class="btn" style="min-width: 150px;">Start Session</button>
+                    <p id="timer-display" style="margin-top: 1rem; color: var(--text-muted);">Ready to begin?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOSPITAL SECTION -->
+        <section id="hospitals" class="page-section">
+            <h2>Nearby Hospitals</h2>
+            <div class="card" style="max-width: 600px; margin: 3rem auto; text-align: center; padding: 3rem;">
+                <div
+                    style="background: var(--soft-blue); width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem auto;">
+                    <i class="fas fa-hospital-alt" style="font-size: 3rem; color: var(--primary-blue);"></i>
+                </div>
+                <h3>Locate Medical Help</h3>
+                <p class="text-muted" style="margin-bottom: 2rem;">We use your profile location to find the nearest
+                    hospitals, clinics, and emergency centers.</p>
+                <div
+                    style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #eee;">
+                    <strong>Current Location:</strong> <span id="user-location-city">Detection Pending...</span>
+                </div>
+                <button id="find-hospital-btn" class="btn" style="font-size: 1.2rem; padding: 15px 40px;">Find Hospitals
+                    Near Me <i class="fas fa-external-link-alt" style="margin-left: 10px;"></i></button>
+            </div>
+        </section>
+
+        <!-- QUIZ SECTION -->
+        <section id="quiz" class="page-section">
+            <h2>Health Awareness Quiz</h2>
+            <div class="card"
+                style="max-width: 700px; margin: 0 auto; min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
+                <div id="quiz-container">
+                    <div
+                        style="display: flex; justify-content: space-between; margin-bottom: 2rem; color: var(--text-muted);">
+                        <span>Question <span id="current-q">1</span>/10</span>
+                        <span>Score: <span id="score">0</span></span>
+                    </div>
+                    <h3 id="question-text" style="margin-bottom: 2rem;">Loading Question...</h3>
+                    <div id="options-container"></div>
+                    <div id="explanation" class="explanation"
+                        style="margin-top: 1rem; padding: 1rem; background: var(--soft-blue); border-radius: 8px; display: none;">
+                    </div>
+                    <div style="text-align: right; margin-top: 2rem;">
+                        <button id="next-btn" class="btn" style="display: none;">Next Question</button>
+                    </div>
+                </div>
+                <div id="result-container" style="display: none; text-align: center;">
+                    <i class="fas fa-trophy" style="font-size: 4rem; color: #ffc107; margin-bottom: 1rem;"></i>
+                    <h3>Quiz Completed!</h3>
+                    <p style="font-size: 1.5rem; margin: 1rem 0;">You scored <strong id="final-score"
+                            style="color: var(--primary-blue);">0</strong> out of 10</p>
+                    <div id="performance-msg" style="margin-bottom: 2rem; color: var(--text-muted);"></div>
+                    <button onclick="location.reload()" class="btn">Retake Quiz</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer
+        style="text-align:center; padding: 2rem; color: var(--text-muted); margin-top: 2rem; border-top: 1px solid #eee;">
+        <p>&copy; 2026 Healthify Platform. All rights reserved.</p>
+        <div id="daily-tip-container" class="tip-banner"
+            style="margin-top: 1rem; display:inline-flex; text-align:left;">
+            <i class="fas fa-lightbulb" style="font-size: 1.2rem;"></i>
+            <div>
+                <strong>Daily Tip:</strong> <span id="daily-tip-text">Loading...</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Register PWA Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('SW registration failed: ', err));
+            });
+        }
+    </script>
+</body>
+
+</html>

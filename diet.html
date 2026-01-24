@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Planner - Healthify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <h2>Diet Planner</h2>
+
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+                <div style="flex: 1; min-width: 200px;">
+                    <label>Your Goal</label>
+                    <select id="diet-goal">
+                        <option value="maintain">Maintain Health</option>
+                        <option value="gain">Weight Gain</option>
+                        <option value="loss">Weight Loss</option>
+                    </select>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <label>Duration</label>
+                    <select id="diet-duration">
+                        <option value="weekly">Weekly Plan</option>
+                        <option value="monthly">Monthly Overview</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="generateDiet()">Generate Plan</button>
+            </div>
+
+            <div id="diet-result" style="margin-top: 2rem; display: none;">
+                <h3 style="border-bottom: 2px solid var(--primary-blue); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                    Recommended Plan</h3>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--soft-blue); text-align: left;">
+                                <th style="padding: 1rem; border-radius: 8px 0 0 8px;">Meal</th>
+                                <th style="padding: 1rem;">Suggestion</th>
+                                <th style="padding: 1rem; border-radius: 0 8px 8px 0;">Calories</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diet-table-body">
+                            <!-- Injected JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/diet.js"></script>
+</body>
+
+</html>

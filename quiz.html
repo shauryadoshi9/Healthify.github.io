@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Quiz - Healthify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option-btn:hover {
+            background: #e2e6ea;
+            border-color: var(--primary-blue);
+        }
+
+        .option-btn.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option-btn.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--soft-blue);
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <h2>Health Awareness Quiz</h2>
+
+        <div class="card"
+            style="max-width: 700px; margin: 0 auto; min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
+
+            <!-- Quiz Area -->
+            <div id="quiz-container">
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 2rem; color: var(--text-muted);">
+                    <span>Question <span id="current-q">1</span>/10</span>
+                    <span>Score: <span id="score">0</span></span>
+                </div>
+
+                <h3 id="question-text" style="margin-bottom: 2rem;">Loading Question...</h3>
+
+                <div id="options-container">
+                    <!-- Options Injected Here -->
+                </div>
+
+                <div id="explanation" class="explanation"></div>
+
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button id="next-btn" class="btn" style="display: none;">Next Question</button>
+                </div>
+            </div>
+
+            <!-- Result Area -->
+            <div id="result-container" style="display: none; text-align: center;">
+                <i class="fas fa-trophy" style="font-size: 4rem; color: #ffc107; margin-bottom: 1rem;"></i>
+                <h3>Quiz Completed!</h3>
+                <p style="font-size: 1.5rem; margin: 1rem 0;">You scored <strong id="final-score"
+                        style="color: var(--primary-blue);">0</strong> out of 10</p>
+                <div id="performance-msg" style="margin-bottom: 2rem; color: var(--text-muted);"></div>
+                <button onclick="location.reload()" class="btn">Retake Quiz</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+
+</html>
